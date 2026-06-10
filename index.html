@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E0F14;
+  --paper: #F5F2EB;
+  --paper2: #EDE9DF;
+  --paper3: #E4DFD3;
+  --rule: #D4CEBC;
+  --muted: #6B6455;
+  --accent: #C84B1F;
+  --accent2: #1A6B4A;
+  --accent3: #1B4587;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(200, 75, 31, 0.12), transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(27, 69, 135, 0.12), transparent 24%),
+    linear-gradient(180deg, #FBF8F1 0%, var(--paper) 100%);
+}
+
+.shell { max-width: 1180px; margin: 0 auto; padding: 36px 24px 56px; }
+.hero {
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 24px 70px rgba(14, 15, 20, 0.08);
+}
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+h1 em { color: var(--accent); font-style: italic; }
+.lead {
+  max-width: 760px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.toolbar a, .toolbar button {
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 9px 14px;
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.toolbar a:hover, .toolbar button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.card {
+  grid-column: span 6;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--rule);
+  border-radius: 22px;
+  padding: 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  min-height: 210px;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(14, 15, 20, 0.08);
+  border-color: rgba(200, 75, 31, 0.4);
+}
+.card .tag {
+  display: inline-flex;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 999px;
+  padding: 5px 10px;
+  margin-bottom: 14px;
+}
+.card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.card p { color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+.card .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  background: var(--paper2);
+  border-radius: 999px;
+  padding: 5px 9px;
+}
+.card.accent .tag { background: var(--accent); }
+.card.blue .tag { background: var(--accent3); }
+.card.green .tag { background: var(--accent2); }
+.card.gold .tag { background: #B8860B; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+@media (max-width: 860px) {
+  .card { grid-column: span 12; }
+}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="eyebrow">Notes deployment hub</div>
+      <h1>Open the notes<br>from one place.</h1>
+      <p class="lead">This folder now works like a small note app: start here, jump into any note, then use the back button to return here or move to the last page you were reading.</p>
+      <div class="toolbar">
+        <button type="button" onclick="history.back()">Back</button>
+        <a href="sandbox.html">Sandbox</a>
+        <a href="kubernetes.html">Kubernetes</a>
+        <a href="kuber.html">Kubectl cheat sheet</a>
+        <a href="skaffold.html">Skaffold</a>
+      </div>
+
+      <div class="grid">
+        <a class="card accent" href="sandbox.html">
+          <span class="tag">Deploy · Orchestration</span>
+          <h2>Sandbox orchestration</h2>
+          <p>Setup guide for the Kubernetes-based sandbox system with DNS, ingress, S3, deployment, and troubleshooting notes.</p>
+          <div class="meta">
+            <span class="pill">Deployment flow</span>
+            <span class="pill">Infrastructure</span>
+            <span class="pill">Backend + frontend</span>
+          </div>
+        </a>
+
+        <a class="card blue" href="kubernetes.html">
+          <span class="tag">Core concepts</span>
+          <h2>Kubernetes local notes</h2>
+          <p>A longer guide for the local Kubernetes workflow, from pods and deployments to debugging and autoscaling.</p>
+          <div class="meta">
+            <span class="pill">Pods</span>
+            <span class="pill">Ingress</span>
+            <span class="pill">YAML</span>
+          </div>
+        </a>
+
+        <a class="card green" href="kuber.html">
+          <span class="tag">Quick reference</span>
+          <h2>Kubectl cheat sheet</h2>
+          <p>Fast command reference for cluster, pod, deployment, service, and namespace operations.</p>
+          <div class="meta">
+            <span class="pill">kubectl</span>
+            <span class="pill">Commands</span>
+            <span class="pill">Cheat sheet</span>
+          </div>
+        </a>
+
+        <a class="card gold" href="skaffold.html">
+          <span class="tag">Dev workflow</span>
+          <h2>Skaffold + MERN</h2>
+          <p>Local microservices workflow with Docker Desktop Kubernetes, hot reload, file sync, and debug tips.</p>
+          <div class="meta">
+            <span class="pill">Skaffold</span>
+            <span class="pill">Hot reload</span>
+            <span class="pill">Microservices</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer">
+        <span>Tip: if you open a note directly, use the Back button in that page to return here.</span>
+        <span>Static HTML · ready for local or hosted deployment</span>
+      </div>
+    </section>
+  </div>
+<script>
+(function(){
+  fetch('shared-navbar.html').then(r=>r.text()).then(html=>{
+    const wrapper=document.createElement('div');
+    wrapper.innerHTML=html;
+    const shared=wrapper.querySelector('#shared-navbar');
+    if(shared){
+      document.body.insertBefore(shared, document.body.firstChild);
+      const script=wrapper.querySelector('script');
+      if(script) document.body.appendChild(script);
+      document.body.classList.add('has-shared-navbar');
+      if(typeof goBack !== 'function') window.goBack = function(){ if(window.history.length>1){window.history.back();return;} window.location.href='index.html'; };
+    }
+  }).catch(()=>{});
+})();
+</script>
+</body>
+</html>

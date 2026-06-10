@@ -1229,3 +1229,34 @@ sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
+<script>
+(function(){
+  fetch('shared-navbar.html').then(r=>r.text()).then(html=>{
+    const wrapper=document.createElement('div');
+    wrapper.innerHTML=html;
+    const shared=wrapper.querySelector('#shared-navbar');
+    if(shared){
+      document.body.insertBefore(shared, document.body.firstChild);
+      document.body.classList.add('has-shared-navbar');
+      document.querySelectorAll('body .note-nav').forEach(n=>{ if(!shared.contains(n)) n.remove(); });
+      const scripts=wrapper.querySelectorAll('script');
+      scripts.forEach(s=>{ const ns=document.createElement('script'); ns.textContent=s.textContent; document.body.appendChild(ns); });
+      if(typeof goBack !== 'function') window.goBack = function(){ if(window.history.length>1){window.history.back();return;} window.location.href='index.html'; };
+    }
+  }).catch(()=>{});
+})();
+</script>
+<script>
+(function(){
+  fetch('shared-navbar.html').then(r=>r.text()).then(html=>{
+    const container=document.createElement('div');
+    container.innerHTML=html;
+    const main=document.querySelector('main');
+    if(main && main.parentNode) main.parentNode.insertBefore(container, main.nextSibling);
+    else document.body.insertBefore(container, document.body.firstChild);
+    if(typeof goBack !== 'function'){
+      window.goBack = function(){ if(window.history.length>1){ window.history.back(); return;} window.location.href='index.html'; };
+    }
+  }).catch(()=>{});
+})();
+</script>
