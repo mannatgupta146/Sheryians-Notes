@@ -61,10 +61,17 @@ Sheryians-Notes/
 ## 🛠️ Development & Deployment
 
 - **Local development** – no build step required; edit the HTML/CSS directly.
-- **Deployment** – the site consists of static assets only, so you can host it on any static‑hosting platform (GitHub Pages, Netlify, Vercel, Render, etc.).
-  - Push the repository.
-  - Configure the hosting service to serve the `index.html` as the entry point.
+## 🚀 Deployment
 
+This project is a static site and can be hosted on any static‑hosting platform. Below are quick steps to publish it with **GitHub Pages**:
+
+1. **Create a repository** on GitHub (e.g., `mannatgupta146/Notes`).
+2. **Push** this code to the `main` (or `gh-pages`) branch.
+3. In the repository **Settings → Pages**, set the source to the `main` branch and the folder to `/ (root)`.
+4. GitHub will generate a URL like https://mannatgupta146.github.io/Sheryians-Notes/. Access any note via https://mannatgupta146.github.io/Sheryians-Notes/notes/CICD.html.
+5. For other hosts (Netlify, Vercel, Render) simply drag‑and‑drop the repository or connect the GitHub repo; the site will be served automatically.
+
+> **Note:** Ensure the `shared-navbar.html` path uses `../shared-navbar.html` (already configured) so navigation works from the `notes/` subdirectory.
 ---
 
 ## 📚 Adding Content
