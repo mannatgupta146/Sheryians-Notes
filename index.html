@@ -16,6 +16,8 @@
   --accent: #C84B1F;
   --accent2: #1A6B4A;
   --accent3: #1B4587;
+  --purple: #523B75;
+  --pink: #A83F7E;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -146,6 +148,8 @@ h1 em { color: var(--accent); font-style: italic; }
 .card.blue .tag { background: var(--accent3); }
 .card.green .tag { background: var(--accent2); }
 .card.gold .tag { background: #B8860B; }
+.card.purple .tag { background: var(--purple); }
+.card.pink .tag { background: var(--pink); }
 .footer {
   display: flex;
   justify-content: space-between;
@@ -175,6 +179,8 @@ h1 em { color: var(--accent); font-style: italic; }
         <a href="kubernetes.html">Kubernetes</a>
         <a href="kuber.html">Kubectl cheat sheet</a>
         <a href="skaffold.html">Skaffold</a>
+        <a href="eks.html">EKS</a>
+        <a href="codespace.html">codeSpace</a>
       </div>
 
       <div class="grid">
@@ -219,6 +225,28 @@ h1 em { color: var(--accent); font-style: italic; }
             <span class="pill">Skaffold</span>
             <span class="pill">Hot reload</span>
             <span class="pill">Microservices</span>
+          </div>
+        </a>
+
+        <a class="card purple" href="eks.html">
+          <span class="tag">Deploy · Production</span>
+          <h2>Amazon EKS Deployment</h2>
+          <p>An end-to-end guide for deploying a multi-service application to AWS EKS with Skaffold, S3, and CloudFront.</p>
+          <div class="meta">
+            <span class="pill">Amazon EKS</span>
+            <span class="pill">AWS</span>
+            <span class="pill">Production</span>
+          </div>
+        </a>
+
+        <a class="card pink" href="codespace.html">
+          <span class="tag">Capstone · Architecture</span>
+          <h2>codeSpace sandbox IDE</h2>
+          <p>Engineering documentation for codeSpace, an AI-powered cloud sandbox IDE running React+Vite on Kubernetes.</p>
+          <div class="meta">
+            <span class="pill">Kubernetes</span>
+            <span class="pill">LangGraph</span>
+            <span class="pill">AI Agent</span>
           </div>
         </a>
       </div>
