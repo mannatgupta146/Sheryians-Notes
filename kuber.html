@@ -22,6 +22,99 @@
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
       </style>
+      <style>
+      :root {
+        --ink:       #0E0F14;
+        --paper:     #F5F2EB;
+        --paper2:    #EDE9DF;
+        --paper3:    #E4DFD3;
+        --rule:      #D4CEBC;
+        --muted:     #6B6455;
+        --accent:    #C84B1F;
+        --accent2:   #1A6B4A;
+        --accent3:   #1B4587;
+        --gold:      #B8860B;
+        --code-bg:   #1A1C24;
+        --code-text: #E2DCCC;
+        --flag-c:    #5BA4CF;
+        --val-c:     #F4A261;
+      }
+
+      html body {
+        background-color: var(--paper) !important;
+        color: var(--ink) !important;
+        font-family: 'DM Sans', sans-serif !important;
+      }
+
+      /* Headings */
+      html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+        color: var(--ink) !important;
+        font-family: 'Fraunces', serif !important;
+        border-bottom-color: var(--rule) !important;
+      }
+
+      /* Links */
+      html body a {
+        color: var(--accent) !important;
+      }
+      html body a:hover {
+        color: var(--accent) !important;
+        text-decoration: underline !important;
+      }
+
+      /* Tables */
+      html body table th {
+        background-color: var(--paper3) !important;
+        color: var(--ink) !important;
+        border: 1px solid var(--rule) !important;
+        font-family: 'IBM Plex Mono', monospace !important;
+      }
+      html body table td {
+        border: 1px solid var(--rule) !important;
+        background-color: transparent !important;
+        color: var(--ink) !important;
+      }
+      html body table tr:hover td {
+        background-color: var(--paper2) !important;
+      }
+
+      /* Code and Pre */
+      html body code {
+        font-family: 'IBM Plex Mono', monospace !important;
+        background-color: var(--paper3) !important;
+        color: var(--accent) !important;
+        border: 1px solid var(--rule) !important;
+        border-radius: 4px !important;
+        padding: 1px 5px !important;
+      }
+      html body code::after, html body code::before {
+        content: "" !important;
+      }
+      html body pre {
+        background-color: var(--code-bg) !important;
+        border: 1px solid var(--rule) !important;
+        border-radius: 8px !important;
+      }
+      html body pre code {
+        background-color: transparent !important;
+        color: var(--code-text) !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+
+      /* Blockquote */
+      html body blockquote {
+        background-color: var(--paper2) !important;
+        border-left: 4px solid var(--accent3) !important;
+        color: var(--ink) !important;
+      }
+
+      /* Horizontal Rule */
+      html body hr {
+        background-color: var(--rule) !important;
+        height: 1px !important;
+      }
+      </style>
       <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function () {
     // your code here
