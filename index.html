@@ -33,7 +33,7 @@ body {
 }
 
 .shell { max-width: 1180px; margin: 0 auto; padding: 36px 24px 56px; }
-body.has-shared-navbar .shell { padding-top: 96px; }
+body.has-shared-navbar .shell { padding-top: 116px; }
 .hero {
   border: 1px solid var(--rule);
   background: rgba(255, 255, 255, 0.48);
@@ -175,13 +175,20 @@ h1 em { color: var(--accent); font-style: italic; }
       <h1>Open the notes<br>from one place.</h1>
       <p class="lead">This folder now works like a small note app: start here, jump into any note, then use the back button to return here or move to the last page you were reading.</p>
       <div class="toolbar">
-        <button type="button" onclick="history.back()">Back</button>
-        <a href="sandbox.html">Sandbox</a>
-        <a href="kubernetes.html">Kubernetes</a>
-        <a href="kuber.html">Kubectl cheat sheet</a>
-        <a href="skaffold.html">Skaffold</a>
-        <a href="eks.html">EKS</a>
+        <a href="CICD.html">CI/CD</a>
         <a href="codespace.html">codeSpace</a>
+        <a href="ejs.html">EJS</a>
+        <a href="eks.html">EKS</a>
+        <a href="jwt-auth.html">JWT Auth</a>
+        <a href="kuber.html">Kubectl cheat sheet</a>
+        <a href="kubernetes.html">Kubernetes</a>
+        <a href="MCP.html">MCP</a>
+        <a href="mutliagent.html">Multi-Agent</a>
+        <a href="rate-limiting.html">Rate Limit</a>
+        <a href="redis.html">Redis</a>
+        <a href="sandbox.html">Sandbox</a>
+        <a href="skaffold.html">Skaffold</a>
+        <a href="jest-testing.html">Testing</a>
       </div>
 
       <div class="grid">
@@ -248,6 +255,94 @@ h1 em { color: var(--accent); font-style: italic; }
             <span class="pill">Kubernetes</span>
             <span class="pill">LangGraph</span>
             <span class="pill">AI Agent</span>
+          </div>
+        </a>
+
+        <a class="card blue" href="ejs.html">
+          <span class="tag">Backend · Templating</span>
+          <h2>EJS Server-Side Templating</h2>
+          <p>Server-side templating for Express. Write HTML with dynamic data baked in — no frontend framework, no build step, no API.</p>
+          <div class="meta">
+            <span class="pill">SSR</span>
+            <span class="pill">Express</span>
+            <span class="pill">Dynamic HTML</span>
+          </div>
+        </a>
+
+        <a class="card purple" href="jwt-auth.html">
+          <span class="tag">Security · Authentication</span>
+          <h2>Access &amp; Refresh Tokens</h2>
+          <p>Why stateless auth breaks without short-lived tokens, what attacks the two-token pattern prevents, and a complete MERN implementation.</p>
+          <div class="meta">
+            <span class="pill">JWT</span>
+            <span class="pill">httpOnly Cookie</span>
+            <span class="pill">Silent Refresh</span>
+          </div>
+        </a>
+
+        <a class="card pink" href="jest-testing.html">
+          <span class="tag">Testing · Quality</span>
+          <h2>Jest &amp; Software Testing</h2>
+          <p>Backend testing with Jest, Supertest, and mongodb-memory-server — plus a clear map of the modern frontend testing landscape.</p>
+          <div class="meta">
+            <span class="pill">Jest</span>
+            <span class="pill">Supertest</span>
+            <span class="pill">Mocking</span>
+          </div>
+        </a>
+
+        <a class="card green" href="rate-limiting.html">
+          <span class="tag">Security · Protection</span>
+          <h2>Rate Limiting &amp; DDoS</h2>
+          <p>How to protect your Express API from abuse, brute-force attacks, and DDoS using express-rate-limit, Redis stores, Nginx, and Helmet.</p>
+          <div class="meta">
+            <span class="pill">Rate Limiting</span>
+            <span class="pill">DDoS</span>
+            <span class="pill">Redis Store</span>
+          </div>
+        </a>
+
+        <a class="card blue" href="redis.html">
+          <span class="tag">Performance · Database</span>
+          <h2>Redis In-Memory Store</h2>
+          <p>The complete guide to Redis — what it is, how it works internally, why it's fast even when cloud-hosted, and defending against cache attacks.</p>
+          <div class="meta">
+            <span class="pill">Caching</span>
+            <span class="pill">Pub/Sub</span>
+            <span class="pill">In-Memory</span>
+          </div>
+        </a>
+
+        <a class="card gold" href="CICD.html">
+          <span class="tag">DevOps · Pipeline</span>
+          <h2>CI/CD GitHub Actions</h2>
+          <p>Continuous Integration and Continuous Deployment — how to automatically test your code on every push and deploy only when tests pass.</p>
+          <div class="meta">
+            <span class="pill">GitHub Actions</span>
+            <span class="pill">Workflows</span>
+            <span class="pill">Auto Deploy</span>
+          </div>
+        </a>
+
+        <a class="card accent" href="MCP.html">
+          <span class="tag">AI Integration · Standard</span>
+          <h2>Model Context Protocol</h2>
+          <p>The open standard that lets any LLM talk to any tool — databases, file systems, APIs, your own code — without custom glue code.</p>
+          <div class="meta">
+            <span class="pill">Tools</span>
+            <span class="pill">Resources</span>
+            <span class="pill">JSON-RPC</span>
+          </div>
+        </a>
+
+        <a class="card purple" href="mutliagent.html">
+          <span class="tag">AI Architecture · Multiagent</span>
+          <h2>Multiagent Architecture</h2>
+          <p>Why one LLM can't do everything well — and how to build a system of specialised agents that delegate, collaborate, and produce better results.</p>
+          <div class="meta">
+            <span class="pill">LangChain</span>
+            <span class="pill">Orchestration</span>
+            <span class="pill">Sub-Agents</span>
           </div>
         </a>
       </div>
