@@ -2291,19 +2291,59 @@ function copyCode(btn) {
 </script>
 <script>
 (function(){
-  fetch('shared-navbar.html').then(r=>r.text()).then(html=>{
-    const wrapper=document.createElement('div');
-    wrapper.innerHTML=html;
-    const shared=wrapper.querySelector('#shared-navbar');
-    if(shared){
-      document.body.insertBefore(shared, document.body.firstChild);
-      document.body.classList.add('has-shared-navbar');
-      document.querySelectorAll('body .note-nav').forEach(n=>{ if(!shared.contains(n)) n.remove(); });
-      const scripts=wrapper.querySelectorAll('script');
-      scripts.forEach(s=>{ const ns=document.createElement('script'); ns.textContent=s.textContent; document.body.appendChild(ns); });
-      if(typeof goBack !== 'function') window.goBack = function(){ if(window.history.length>1){window.history.back();return;} window.location.href='index.html'; };
+  const path = 'shared-navbar.html';
+  console.log('[Navbar] Fetching via XHR from:', path);
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', path, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        console.log('[Navbar] Fetched successfully');
+        const html = xhr.responseText;
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = html;
+        const shared = wrapper.querySelector('#shared-navbar');
+        if(shared){
+          console.log('[Navbar] Found #shared-navbar element');
+          document.body.insertBefore(shared, document.body.firstChild);
+          document.body.classList.add('has-shared-navbar');
+          
+          // Remove duplicate note-navs if any
+          document.querySelectorAll('body .note-nav').forEach(n => {
+            if(!shared.contains(n)) {
+              console.log('[Navbar] Removing old note-nav:', n);
+              n.remove();
+            }
+          });
+          
+          // Execute scripts
+          const scripts = wrapper.querySelectorAll('script');
+          scripts.forEach(s => {
+            console.log('[Navbar] Executing script');
+            const ns = document.createElement('script');
+            ns.textContent = s.textContent;
+            document.body.appendChild(ns);
+          });
+          
+          if(typeof goBack !== 'function') {
+            window.goBack = function(){
+              if(window.history.length > 1) {
+                window.history.back();
+                return;
+              }
+              window.location.href = 'index.html';
+            };
+          }
+          console.log('[Navbar] Load complete');
+        } else {
+          console.error('[Navbar] #shared-navbar not found in HTML');
+        }
+      } else {
+        console.error('[Navbar] Fetch failed with status:', xhr.status);
+      }
     }
-  }).catch(()=>{});
+  };
+  xhr.send();
 })();
 </script>
 </body>
